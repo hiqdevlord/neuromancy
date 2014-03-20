@@ -77,7 +77,7 @@ class LogisticRegression(object):
         self.W = theano.shared(value=numpy.zeros((n_in, n_out),
                                                  dtype=theano.config.floatX),
                                 name='W', borrow=True)
-        # initialize the biases b as a vector of n_out 0s
+        # initialize the baises b as a vector of n_out 0s
         self.b = theano.shared(value=numpy.zeros((n_out,),
                                                  dtype=theano.config.floatX),
                                name='b', borrow=True)
@@ -220,7 +220,7 @@ def sgd_optimization_mnist(learning_rate=0.13, n_epochs=1000,
                            dataset='mnist.pkl.gz',
                            batch_size=600):
     """
-    Demonstrate stochastic gradient descent optimization of a log-linear
+    Demonstrate stochastic gradient descent (SGD) optimization of a log-linear
     model
 
     This is demonstrated on MNIST.
@@ -306,15 +306,12 @@ def sgd_optimization_mnist(learning_rate=0.13, n_epochs=1000,
     print '... training the model'
     # early-stopping parameters
     patience = 5000  # look as this many examples regardless
-    patience_increase = 2  # wait this much longer when a new best is
-                                  # found
+    patience_increase = 2  # wait this much longer when a new best is found
     improvement_threshold = 0.995  # a relative improvement of this much is
-                                  # considered significant
+                                   # considered significant
     validation_frequency = min(n_train_batches, patience / 2)
-                                  # go through this many
-                                  # minibatche before checking the network
-                                  # on the validation set; in this case we
-                                  # check every epoch
+            # go through this many minibatches before checking the network
+            # on the validation set; in this case we check every epoch
 
     best_params = None
     best_validation_loss = numpy.inf

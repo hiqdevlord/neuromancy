@@ -33,7 +33,7 @@ import theano
 import theano.tensor as T
 
 
-from logreg import LogisticRegression, load_data
+from logistic import LogisticRegression, load_data
 
 
 class HiddenLayer(object):
@@ -66,7 +66,7 @@ class HiddenLayer(object):
         """
         self.input = input
 
-        # `W` is initialized with `W_values` which is uniformely sampled
+        # `W` is initialized with `W_values` which is uniformly sampled
         # from sqrt(-6./(n_in+n_hidden)) and sqrt(6./(n_in+n_hidden))
         # for tanh activation function
         # the output of uniform if converted using asarray to dtype
